@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Turnos - Esteban</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Marca de agua estampada por toda la pantalla -->
+    <div id="watermark-container" aria-hidden="true"></div>
+
+    <header class="main-header">
+        <h1>Consultorio Médico - Esteban</h1>
+        <p class="subtitle">Horario de atención: Lunes a Viernes de 08:00 a 18:00 hs</p>
+    </header>
+
+    <main class="container">
+        <!-- SECCIÓN IZQUIERDA: Registro de Pacientes -->
+        <section class="panel form-panel">
+            <h2>Registrar Nuevo Turno</h2>
+            <form id="appointment-form">
+                <div class="form-group">
+                    <label for="patient-name">Nombre del Paciente:</label>
+                    <input type="text" id="patient-name" placeholder="Ej: Juan Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialty">Especialidad:</label>
+                    <select id="specialty" required>
+                        <option value="" disabled selected>Seleccione especialidad...</option>
+                        <option value="Clínica Médica">Clínica Médica</option>
+                        <option value="Cardiología">Cardiología</option>
+                        <option value="Pediatría">Pediatría</option>
+                        <option value="Dermatología">Dermatología</option>
+                        <option value="Odontología">Odontología</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="appointment-date">Fecha del Turno:</label>
+                    <input type="date" id="appointment-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="appointment-time">Horario (cada 30 min):</label>
+                    <select id="appointment-time" required>
+                        <!-- Se completa dinámicamente desde script.js -->
+                    </select>
+                </div>
+
+                <div id="feedback-message" class="feedback"></div>
+
+                <button type="submit" class="btn-save">Guardar Turno Asignado</button>
+            </form>
+        </section>
+
+        <!-- SECCIÓN DERECHA: Panel de Turnos Registrados -->
+        <section class="panel list-panel">
+            <div class="list-header">
+                <h2>Turnos Registrados</h2>
+                <span id="counter" class="badge">0 turnos</span>
+            </div>
+            <div id="appointments-list" class="appointments-list">
+                <p class="empty-msg">No hay turnos registrados aún.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
